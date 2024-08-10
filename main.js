@@ -249,6 +249,7 @@ const createRepo = (e) => {
   pinsOnDom(pinnedRepos);
   newForm.reset();
 }
+// A change.
 newForm.addEventListener("submit", createRepo);
 
 // This should render the cards as soon as the overview page is loaded. Possibly will cause conflicts with the other pages.
