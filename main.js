@@ -2,6 +2,16 @@ import { pinnedRepos } from "../pinnedRepos.js";
 import { repos } from "../reposArray.js";
 import { projects } from "../projects.js";
 
+if (("#repoCards") === true) {
+  reposOnDom(repos); 
+} else if (("#pinnedRepos") === true) {
+    pinsOnDom(pinnedRepos); 
+} else if (("#projectDisplay") === true) {
+    projectsOnDom(projects); 
+} else if (("#Tony'sDiv") === true) {
+    TonysOnDom(taco); 
+}
+
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
@@ -29,37 +39,6 @@ const projectsOnDom = (array) => {
 };
 
 projectsOnDom(projects);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -190,3 +169,92 @@ reposSubmit.addEventListener("click", () => {
 });
 
 reposOnDom(repos);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Line 201: Josh
+
+const pinsOnDom = (pinnedRepos) => {
+  let domString = "Pinned";
+  for (const pin of pinnedRepos) {
+    domString +=
+    
+    `<div class="card" style="width: 18rem;">
+      
+      <div class="card-body">
+        <h5 class="card-title">${pin.name}</h5>
+        <p class="card-text">${pin.description}</p>
+        <p class="card-text">${pin.language}</p>
+        <div class="card-footer text-body-secondary"> Stars: ${pin.stars} Forks: ${pin.forks} </div>
+        <button type="button" class="btn btn-outline-danger" id="delete--${pin.id}">Unpin</button>
+      </div>
+    </div>`;
+  }
+
+  renderToDom("#pinnedRepos", domString);
+};
+
+
+
+const newForm = document.querySelector("form");
+
+const createRepos = (e) => {
+  e.preventDefault();
+
+  // Creates a new item for the array based on what the user entered into the form.
+  const newRepoObj = {
+    id: pinnedRepos.length + 1,
+    name: document.querySelector("#newProjectInput").value,
+    description: document.querySelector("#newProjectDescription").value,
+    language: "JavaScript",
+    stars: 0,
+    forks: 0,
+  }
+
+  pinnedRepos.push(newRepoObj);
+  pinsOnDom(pinnedRepos);
+  newForm.reset();
+}
+newForm.addEventListener("submit", createRepos);
+
+// This should render the cards as soon as the overview page is loaded. Possibly will cause conflicts with the other pages.
+// const autoRender = () => {
+//   pinsOnDom(pinnedRepos);
+// }
+// autoRender();
+
+const pinnedListener = document.querySelector("#pinnedRepos"); //Looks at the repo cards
+pinnedListener.addEventListener("click", (e) => {
+  if (e.target.id.includes("delete")) { // Looks for the delete button on a particular card.
+    const [, id] = e.target.id.split("--");
+    const index = pinnedRepos.findIndex((e) => e.id === Number(id));
+    pinnedRepos.splice(index, 1);
+    pinsOnDom(pinnedRepos); // Renders everything again, this time with the new array object.
+  }
+});
