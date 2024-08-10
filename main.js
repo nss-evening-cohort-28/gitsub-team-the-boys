@@ -28,7 +28,6 @@ const projectsOnDom = (array) => {
   renderProjectsToDom("#projectDisplay", domString);
 };
 
-
 projectsOnDom(projects);
 
 
