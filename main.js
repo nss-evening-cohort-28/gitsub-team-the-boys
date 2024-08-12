@@ -7,15 +7,15 @@ const renderToDom = (divId, htmlToRender) => {
   selectedDiv.innerHTML = htmlToRender;
 };
 
-if (("#repoCards") === true) {
-  reposOnDom(repos); }
-  else if (("#pinnedRepos") === true) {
-    pinsOnDom(pinnedRepos); }
-  else if (("#projectDisplay") === true) {
-    projectsOnDom(projects); }
-  else if (("#Tony'sDiv") === true) {
-    TonysOnDom(taco); }
 
+// if (("#repoCards") === true) {
+//   reposOnDom(repos); }
+//   else if (("#pinnedRepos") === true) {
+//     pinsOnDom(pinnedRepos); }
+//   else if (("#projectDisplay") === true) {
+//     projectsOnDom(projects); }
+//   else if (("#Tony'sDiv") === true) {
+//     TonysOnDom(taco); }
 
 
 
@@ -98,12 +98,7 @@ if (("#repoCards") === true) {
 
 
 
-
-
-
-
-
-
+if (window.location.href.includes("repos.html")) { 
 
 // const repos = [
 //   {
@@ -173,12 +168,9 @@ reposSubmit.addEventListener("click", () => {
   reposOnDom(repos);
 });
 
-// reposOnDom(repos)
+reposOnDom(repos)
 
-
-
-
-
+}
 
 
 
@@ -208,6 +200,8 @@ reposSubmit.addEventListener("click", () => {
 
 // Line 201: Josh
 
+if (window.location.href.includes("index.html")) {
+
 const pinsOnDom = (pinnedRepos) => {
   let domString = "Pinned";
   for (const pin of pinnedRepos) {
@@ -227,7 +221,6 @@ const pinsOnDom = (pinnedRepos) => {
 
   renderToDom("#pinnedRepos", domString);
 };
-
 
 
 const newForm = document.querySelector("form");
@@ -251,11 +244,15 @@ const createPin = (e) => {
 }
 newForm.addEventListener("submit", createPin);
 
-// This should render the cards as soon as the overview page is loaded. Possibly will cause conflicts with the other pages.
-// const autoRender = () => {
-//   pinsOnDom(pinnedRepos);
-// }
-// autoRender();
+
+// This should render the cards as soon as the overview page is loaded.
+const autoRender = () => {
+  if (window.location.href.includes("index.html")) {
+  pinsOnDom(pinnedRepos);
+  }
+}
+autoRender()
+
 
 const pinnedListener = document.querySelector("#pinnedRepos"); //Looks at the repo cards
 pinnedListener.addEventListener("click", (e) => {
@@ -266,3 +263,5 @@ pinnedListener.addEventListener("click", (e) => {
     pinsOnDom(pinnedRepos); // Renders everything again, this time with the new array object.
   }
 });
+
+}
