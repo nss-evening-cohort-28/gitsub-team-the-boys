@@ -54,7 +54,8 @@ nav {
   margin: 20px;
 }
 
-.endColumn {
-  display: flex;
+#repoCards {
+  flex: display;
   flex-direction: column;
+  flex-wrap: wrap;
 }

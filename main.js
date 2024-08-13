@@ -7,14 +7,15 @@ const renderToDom = (divId, htmlToRender) => {
   selectedDiv.innerHTML = htmlToRender;
 };
 
-if (("#repoCards") === true) {
-  reposOnDom(repos); }
-  else if (("#pinnedRepos") === true) {
-    pinsOnDom(pinnedRepos); }
-  else if (("#projectDisplay") === true) {
-    projectsOnDom(projects); }
-  else if (("#Tony'sDiv") === true) {
-    TonysOnDom(taco); }
+
+// if (("#repoCards") === true) {
+//   reposOnDom(repos); }
+//   else if (("#pinnedRepos") === true) {
+//     pinsOnDom(pinnedRepos); }
+//   else if (("#projectDisplay") === true) {
+//     projectsOnDom(projects); }
+//   else if (("#Tony'sDiv") === true) {
+//     TonysOnDom(taco); }
 
 
 
@@ -150,13 +151,6 @@ if (("#repoCards") === true) {
       
       reposOnDom(repos)
      }
-    
-    
-
-
-
-
-
 
 
 
@@ -211,10 +205,9 @@ const pinsOnDom = (pinnedRepos) => {
 };
 
 
-
 const newForm = document.querySelector("form");
 
-const createRepo = (e) => {
+const createPin = (e) => {
   e.preventDefault();
 
   // Creates a new item for the array based on what the user entered into the form.
@@ -231,13 +224,17 @@ const createRepo = (e) => {
   pinsOnDom(pinnedRepos);
   newForm.reset();
 }
-newForm.addEventListener("submit", createRepo);
+newForm.addEventListener("submit", createPin);
 
-// This should render the cards as soon as the overview page is loaded. Possibly will cause conflicts with the other pages.
-// const autoRender = () => {
-//   pinsOnDom(pinnedRepos);
-// }
-// autoRender();
+
+// This should render the cards as soon as the overview page is loaded.
+const autoRender = () => {
+  if (window.location.href.includes("index.html")) {
+  pinsOnDom(pinnedRepos);
+  }
+}
+autoRender()
+
 
 const pinnedListener = document.querySelector("#pinnedRepos"); //Looks at the repo cards
 pinnedListener.addEventListener("click", (e) => {
