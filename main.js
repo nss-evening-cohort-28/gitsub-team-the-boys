@@ -186,6 +186,10 @@ if (("#repoCards") === true) {
 
 // Line 201: Josh
 
+if (window.location.href.includes("index.html")) {
+  // Literally all of my code
+ }
+
 const pinsOnDom = (pinnedRepos) => {
   let domString = "Pinned";
   for (const pin of pinnedRepos) {
