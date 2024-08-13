@@ -1,3 +1,7 @@
+body {
+  background-color: darkgrey;
+}
+
 .profilePic {
   width: 300px;
   height: 300px;
@@ -44,4 +48,13 @@ nav {
 .navbarMain {
   height: 60px;
   width: 1000px;
+}
+
+#reposSubmitBtn {
+  margin: 20px;
+}
+
+.endColumn {
+  display: flex;
+  flex-direction: column;
 }

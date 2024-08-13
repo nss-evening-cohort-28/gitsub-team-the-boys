@@ -63,48 +63,49 @@
       <!-- INSERT SPONSOR IMAGES HERE -->
     </div>
   </div>
-  <div class = "navbarMain">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="index.html">Overview</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Repositories</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="projects.html">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="packages.html">Packages</a>
-            </li>
-          </ul>
+  <div class="endColumn">
+    <div class = "navbarMain">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Repositories</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="packages.html">Packages</a>
+              </li>
+            </ul>
         </div>
+        </div>
+      </nav>
+    </div>
+    <div id="repoCards"></div>
+    <!-- START OTHER WORK HERE -->
+    <form>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Name</label>
+        <input type="input" class="form-control" id="exampleFormControlInput1">
       </div>
-    </nav>
+      <div class="form-group">
+        <label for="exampleFormControlInput2">Description:  (Make sure to make the name unique enough so you'll know exactly what the project is by the name itself!)</label>
+        <input type="input" class="form-control" id="exampleFormControlInput2">
+        <button type="submit" class="btn btn-primary" id="reposSubmitBtn">Submit</button>
+      </div>
+    </form>
   </div>
-
-  <!-- START OTHER WORK HERE -->
-
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Name</label>
-      <input type="input" class="form-control" id="exampleFormControlInput1">
-    </div>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">Description:  (Make sure to make the name unique enough so you'll know exactly what the project is by the name itself!)</label>
-      <input type="input" class="form-control" id="exampleFormControlInput1">
-      <button type="submit" class="btn btn-primary" id="reposSubmitBtn">Submit</button>
-    </div>
-  </form>
   
-  <div id="repoCards"></div>
+  
   
   <div class = "footerNav">
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
